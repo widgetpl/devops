@@ -131,6 +131,7 @@ resource "aws_instance" "jenkins" {
 
   provisioner "salt-masterless" {
     local_state_tree = "./srv/salt"
+    local_pillar_roots = "./srv/pillars"
     bootstrap_args = "-P -x python3"
     log_level = "info"
     minion_config_file = "./srv/jenkins.yaml"
